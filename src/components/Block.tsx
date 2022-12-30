@@ -8,7 +8,6 @@ type BlockProps = {
 
 function Block(props:BlockProps){
 
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=53.4808&lon=2.2426&exclude=current,minutely,hourly&appid=${process.env.REACT_APP_APP_KEY}&units=metric`
     const baseImageUrl = "http://openweathermap.org/img/wn/"
 
     const [temp, setTemp] = useState(0);
@@ -32,7 +31,7 @@ function Block(props:BlockProps){
         setDateEnding(getDayEnding(day))
 
         } 
-    })
+    }, [props.data.daily, props.day])
 
     return (
        <div className="Block">
