@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  background-color: #D3CEDF
+}
+
+
+.App-header {
+  background-color: #7493b1;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-frame {
+  display: flex;
+  height: inherit;
+  justify-content: space-between;
+  margin-left: 20vh;
+  margin-right: 20vh;
+  background-color: #D3CEDF;
+}
+
+.Block{
+  text-align: center;
+  margin:5vh;
+  background-color: #D3CEDF;
+  border-style: solid;
+  border-radius: 15vh;
+  border-width: 0.5vh;
+  border-color: #c9bde2;
+  /* hover c9bde2 */
+  padding: 10vh;
+
+}
+sup{
+  font-size:x-small;
+}
