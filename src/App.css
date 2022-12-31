@@ -30,6 +30,20 @@
 .col {
   flex: 33%;
 }
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: stretch;
+  width:100%;
+  margin-left:5vh;
+}
+
+.col-2 {
+  flex: 50%;
+  margin:auto;
+  justify-items: stretch;
+}
 
 .Block {
   text-align: center;
@@ -54,3 +68,6 @@ sup {
   font-size: x-small;
 }
 
+.autocomplete {
+  background-color: aquamarine;
+}

@@ -1,26 +1,32 @@
 import './App.css';
 import Frame from './components/Frame';
 import Search from './components/Search';
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 function App() {
-  
+
   const [location, setLocation] = useState('');
-  
+
   return (
     <>
       <header className="App-header">
-        <p>
-          Weather App
-        </p>
-        <Search
-          location={location}
-          setLocation={setLocation}
-        />
+        <div className='row'>
+          <div className='col-2'>
+            <p>
+              Weather App
+            </p>
+          </div>
+          <div className='col-2'>
+            <Search
+              location={location}
+              setLocation={setLocation}
+            />
+          </div>
+        </div>
       </header>
 
-        <Frame />
-        {/* <p>{location}</p> */}
+      <Frame />
+      {/* <p>{location}</p> */}
 
     </>
   );
