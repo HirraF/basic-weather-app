@@ -4,7 +4,6 @@
   background-color: #faf7ff
 }
 
-
 .App-header {
   background-color: #7493b1;
   min-height: 10vh;
@@ -22,11 +21,14 @@
 
 .App-frame {
   display: flex;
-  height: inherit;
+  height: 90vh;
   justify-content: space-between;
-  margin-left: 20vh;
-  margin-right: 20vh;
   background-color: #faf7ff;
+  width:100%
+}
+
+.col {
+  flex: 33%;
 }
 
 .Block {
@@ -43,10 +45,6 @@
   font-size: 1rem;
 }
 
-.blockContent {
-  width:100%
-}
-
 .description {
   padding-top:2vh;
   font-size: 1.5rem;
@@ -55,3 +53,4 @@
 sup {
   font-size: x-small;
 }
+

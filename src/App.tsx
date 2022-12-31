@@ -18,10 +18,10 @@ function App() {
           setLocation={setLocation}
         />
       </header>
-      <div className='App'>
+
         <Frame />
-        <p>{location}</p>
-      </div>
+        {/* <p>{location}</p> */}
+
     </>
   );
 }
