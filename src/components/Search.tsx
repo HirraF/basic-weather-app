@@ -4,25 +4,27 @@ import { emptyLocation, parsedLocation, parseLocationData } from "../helpers/loc
 
 
 type SearchProps = {
-    location: string
-    setLocation: Function
+    locationCoords: { lat: string, lon: string }
+    setCoords: Function
 }
 
 function Search(props: SearchProps) {
-    const [locationInput, setLocationInput] = useState('')
-    const [locationData, setData] = useState<parsedLocation[]>(emptyLocation);
+    const emptyLoationArray = [emptyLocation]
+    const [textInput, setTextInput] = useState('')
+    const [locationData, setData] = useState<parsedLocation[]>(emptyLoationArray);
+    const [chosenLocationData , setChosenData] = useState(emptyLocation)
     const [showResults, setShowResults] = useState(true);
 
     // Text Input
     function handleChange(e: FormEvent<HTMLInputElement>) {
         setShowResults(true);
-        setLocationInput(e.currentTarget.value)
+        setTextInput(e.currentTarget.value)
     }
 
     // Autocomplete
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${locationInput}&limit=5&appid=${process.env.REACT_APP_APP_KEY}`
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${textInput}&limit=5&appid=${process.env.REACT_APP_APP_KEY}`
     useEffect(() => {
-        if (locationInput !== '') {
+        if (textInput !== '') {
             fetch(url)
                 .then(response => { return response.json() })
                 .then(data => {
@@ -30,12 +32,12 @@ function Search(props: SearchProps) {
                     setData(parsedLocations)
                 })
         }
-        setData(emptyLocation)
+        setData(emptyLoationArray)
 
-    }, [locationInput])
+    }, [textInput])
 
     const createResults = (data: parsedLocation[]): ReactFragment | null => {
-        if (data !== emptyLocation) {
+        if (data !== emptyLoationArray) {
             return (data.map((location, index) =>
                 <div key={index} data-key={index} onClick={handleListClick}>
                     <div className="autocompleteItems" >
@@ -49,24 +51,28 @@ function Search(props: SearchProps) {
 
     function handleListClick(e: SyntheticEvent) {
         e.preventDefault();
-        console.log(e.currentTarget.getAttribute('data-key'));
         let locationKey = Number(e.currentTarget.getAttribute('data-key'));
         let locationObj = locationData[locationKey];
-        let searchString = locationObj.name + ", " + locationObj.state + ", " + locationObj.country;
-        setLocationInput(searchString);
+        setChosenData(locationObj);
+        // handle null state
+        let state = locationObj.state ? locationObj.state : '';
+        let searchBoxString = locationObj.name + ", " + state + ", " + locationObj.country;
+        setTextInput(searchBoxString);
         setShowResults(false);
     }
 
     function handleSubmit(e: SyntheticEvent) {
         e.preventDefault();
-        props.setLocation(locationInput);
+        let lat = chosenLocationData.lat;
+        let lon = chosenLocationData.lon;
+        props.setCoords({ lat: lat, lon: lon });
     }
-
+    
+    
     const results = createResults(locationData);
-
     return (
         <form>
-            <input className="search" type="text" name="location" value={locationInput} onChange={handleChange} />
+            <input className="search" type="text" name="location" value={textInput} onChange={handleChange} />
             <div className="autocomplete">
                 {showResults && results}
             </div>

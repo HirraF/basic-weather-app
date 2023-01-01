@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react"
 import Block from "./Block"
 
-function Frame() {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=53.4808&lon=2.2426&exclude=current,minutely,hourly&appid=${process.env.REACT_APP_APP_KEY}&units=metric`
+type FrameProps = {
+    locationCoords: { lat: string, lon: string }
+}
+
+function Frame(props: FrameProps) {
+    const lat = props.locationCoords.lat;
+    const lon = props.locationCoords.lon;
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=${process.env.REACT_APP_APP_KEY}&units=metric`
 
     const [data, setData] = useState({});
 
@@ -12,7 +18,7 @@ function Frame() {
             .then(data => {
                 setData(data)
             })
-    }, [])
+    }, [props.locationCoords])
 
     return (
         <div className="App-frame">

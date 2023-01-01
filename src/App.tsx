@@ -4,8 +4,9 @@ import Search from './components/Search';
 import { useState } from "react"
 
 function App() {
+  const emptyLocationCoords = { lat: '', lon: '' };
 
-  const [location, setLocation] = useState('');
+  const [locationCoords, setCoords] = useState(emptyLocationCoords);
 
   return (
     <>
@@ -18,16 +19,16 @@ function App() {
           </div>
           <div className='col-2'>
             <Search
-              location={location}
-              setLocation={setLocation}
+              locationCoords={locationCoords}
+              setCoords={setCoords}
             />
           </div>
         </div>
       </header>
 
-      <Frame />
-      {/* <p>{location}</p> */}
-
+      {locationCoords !== emptyLocationCoords &&
+        <Frame locationCoords={locationCoords} />
+      }
     </>
   );
 }

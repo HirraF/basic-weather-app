@@ -23,7 +23,7 @@ export const parseLocationData = (data: any): parsedLocation[] => {
     return parsedlocation
 }
 
-export const emptyLocation: parsedLocation[] = [
+export const emptyLocation: parsedLocation= 
     {
         name: '',
         state: '',
@@ -31,4 +31,3 @@ export const emptyLocation: parsedLocation[] = [
         lat: '',
         lon: '',
     }
-]
