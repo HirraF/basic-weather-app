@@ -9,10 +9,10 @@ type SearchProps = {
 }
 
 function Search(props: SearchProps) {
-    const emptyLoationArray = [emptyLocation]
+    const emptyLocationArray = [emptyLocation]
     const [textInput, setTextInput] = useState('')
-    const [locationData, setData] = useState<parsedLocation[]>(emptyLoationArray);
-    const [chosenLocationData , setChosenData] = useState(emptyLocation)
+    const [locationData, setData] = useState<parsedLocation[]>(emptyLocationArray);
+    const [chosenLocationData, setChosenData] = useState(emptyLocation)
     const [showResults, setShowResults] = useState(true);
 
     // Text Input
@@ -32,12 +32,12 @@ function Search(props: SearchProps) {
                     setData(parsedLocations)
                 })
         }
-        setData(emptyLoationArray)
+        setData(emptyLocationArray);
 
     }, [textInput])
 
     const createResults = (data: parsedLocation[]): ReactFragment | null => {
-        if (data !== emptyLoationArray) {
+        if (data !== emptyLocationArray) {
             return (data.map((location, index) =>
                 <div key={index} data-key={index} onClick={handleListClick}>
                     <div className="autocompleteItems" >
@@ -54,8 +54,7 @@ function Search(props: SearchProps) {
         let locationKey = Number(e.currentTarget.getAttribute('data-key'));
         let locationObj = locationData[locationKey];
         setChosenData(locationObj);
-        // handle null state
-        let state = locationObj.state ? locationObj.state : '';
+        let state = locationObj.state ? locationObj.state : '';   // handle null state
         let searchBoxString = locationObj.name + ", " + state + ", " + locationObj.country;
         setTextInput(searchBoxString);
         setShowResults(false);
@@ -67,12 +66,12 @@ function Search(props: SearchProps) {
         let lon = chosenLocationData.lon;
         props.setCoords({ lat: lat, lon: lon });
     }
-    
-    
+
+
     const results = createResults(locationData);
     return (
         <form>
-            <input className="search" type="text" name="location" value={textInput} onChange={handleChange} />
+            <input className="search" type="text" name="location" autoComplete="off" value={textInput} onChange={handleChange} />
             <div className="autocomplete">
                 {showResults && results}
             </div>
