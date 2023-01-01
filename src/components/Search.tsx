@@ -20,6 +20,11 @@ function Search(props: SearchProps) {
         setShowResults(true);
         setTextInput(e.currentTarget.value)
     }
+    useEffect(() => {
+        if (textInput === '') {
+            setShowResults(false);
+        }
+    })
 
     // Autocomplete
     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${textInput}&limit=5&appid=${process.env.REACT_APP_APP_KEY}`
@@ -57,7 +62,7 @@ function Search(props: SearchProps) {
         let state = locationObj.state ? locationObj.state : '';   // handle null state
         let searchBoxString = locationObj.name + ", " + state + ", " + locationObj.country;
         setTextInput(searchBoxString);
-        setShowResults(false);
+       setShowResults(false);
     }
 
     function handleSubmit(e: SyntheticEvent) {
