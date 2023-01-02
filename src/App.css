@@ -1,18 +1,44 @@
 .App {
-  text-align: center;
+  background: linear-gradient(0deg, #aab0f3 0%, #ffecf9 50%);
   height: 100vh;
-  background-color: #faf7ff
 }
 
 .App-header {
-  background-color: #7493b1;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #7493b1;
+}
+
+#logo {
+  margin-left: 2vw;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.search {
+  width: 50vw;
+}
+
+.autocomplete {
+  background-color: #c9bde2;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: black;
+  z-index: 99;
+}
+
+.autocompleteItems:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+
 }
 
 .App-link {
@@ -23,26 +49,11 @@
   display: flex;
   height: 90vh;
   justify-content: space-between;
-  background-color: #faf7ff;
-  width:100%
+  width: 100%;
 }
 
-.col {
+.col-1 {
   flex: 33%;
-}
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  justify-items: stretch;
-  width:100%;
-  margin-left:5vh;
-}
-
-.col-2 {
-  flex: 50%;
-  margin:auto;
-  justify-items: stretch;
 }
 
 .Block {
@@ -60,28 +71,10 @@
 }
 
 .description {
-  padding-top:2vh;
+  padding-top: 2vh;
   font-size: 1.5rem;
 }
 
 sup {
   font-size: x-small;
-}
-
-.search {
-  width: 40%;
-}
-
-.autocomplete {
-  background-color: aquamarine;
-  padding:0;
-  margin:0;
-  cursor: pointer;
-  color:black;
-  z-index: 99;
-}
-.autocompleteItems:hover {
-  /*when hovering an item:*/
-  background-color: #e9e9e9; 
-
 }

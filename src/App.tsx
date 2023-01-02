@@ -9,27 +9,26 @@ function App() {
   const [locationCoords, setCoords] = useState(emptyLocationCoords);
 
   return (
-    <>
+    <div className='App'>
       <header className="App-header">
-        <div className='row'>
-          <div className='col-2'>
-            <p>
-              Weather App
-            </p>
-          </div>
-          <div className='col-2'>
+        <div id='logo'>
+          <p>
+            Weather App
+          </p>
+        </div>
+        <div>
             <Search
               locationCoords={locationCoords}
               setCoords={setCoords}
             />
-          </div>
         </div>
+
       </header>
 
       {locationCoords !== emptyLocationCoords &&
         <Frame locationCoords={locationCoords} />
       }
-    </>
+    </div>
   );
 }
 

@@ -22,13 +22,13 @@ function Frame(props: FrameProps) {
 
     return (
         <div className="App-frame">
-            <div className="col">
+            <div className="col-1">
                 <Block data={data} day={0} />
             </div>
-            <div className="col">
+            <div className="col-1">
                 <Block data={data} day={1} />
             </div>
-            <div className="col">
+            <div className="col-1">
                 <Block data={data} day={2} />
             </div>
         </div>
