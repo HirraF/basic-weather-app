@@ -24,11 +24,11 @@ function Search(props: SearchProps) {
         if (textInput === '') {
             setShowResults(false);
         }
-    })
+    }, [textInput])
 
     // Autocomplete
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${textInput}&limit=5&appid=${process.env.REACT_APP_APP_KEY}`
     useEffect(() => {
+        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${textInput}&limit=5&appid=${process.env.REACT_APP_APP_KEY}`
         if (textInput !== '') {
             fetch(url)
                 .then(response => { return response.json() })
@@ -46,7 +46,9 @@ function Search(props: SearchProps) {
             return (data.map((location, index) =>
                 <div key={index} data-key={index} onClick={handleListClick}>
                     <div className="autocompleteItems" >
-                        {location.name}, {location.state}, {location.country}
+                        {location.state ?
+                            `${location.name}, ${location.state}, ${location.country}`
+                            : `${location.name}, ${location.country}`}
                     </div>
                 </div>
             ));
@@ -59,10 +61,11 @@ function Search(props: SearchProps) {
         let locationKey = Number(e.currentTarget.getAttribute('data-key'));
         let locationObj = locationData[locationKey];
         setChosenData(locationObj);
-        let state = locationObj.state ? locationObj.state : '';   // handle null state
-        let searchBoxString = locationObj.name + ", " + state + ", " + locationObj.country;
+        let searchBoxString = locationObj.state ? `${locationObj.name}, ${locationObj.state}, ${locationObj.country}`
+            : `${locationObj.name}, ${locationObj.country}`;
+
         setTextInput(searchBoxString);
-       setShowResults(false);
+        setShowResults(false);
     }
 
     function handleSubmit(e: SyntheticEvent) {
@@ -76,11 +79,17 @@ function Search(props: SearchProps) {
     const results = createResults(locationData);
     return (
         <form>
-            <input className="search" type="text" name="location" autoComplete="off" value={textInput} onChange={handleChange} />
-            <div className="autocomplete">
-                {showResults && results}
+            <div className="row">
+                <div id="searchCol">
+                    <input className="search" type="text" name="location" autoComplete="off" value={textInput} onChange={handleChange} />
+                    <div className="autocomplete">
+                        {showResults && results}
+                    </div>
+                </div>
+                <div id="submitCol">
+                    <input type="submit" value="Submit" onClick={handleSubmit} />
+                </div>
             </div>
-            <input type="submit" value="Submit" onClick={handleSubmit} />
         </form>
     )
 }
