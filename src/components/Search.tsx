@@ -67,7 +67,6 @@ function Search(props: SearchProps) {
         setTextInput(searchBoxString);
         setShowResults(false);
     }
-
     function handleSubmit(e: SyntheticEvent) {
         e.preventDefault();
         let lat = chosenLocationData.lat;
@@ -81,8 +80,11 @@ function Search(props: SearchProps) {
         <form>
             <div className="row">
                 <div id="searchCol">
-                    <input className="search" type="text" name="location" autoComplete="off" value={textInput} onChange={handleChange} />
-                    <div className="autocomplete">
+                    <input id="searchBox" type="text" name="location" autoComplete="off"
+                        className={showResults ? "searchBoxResults" : "searchBoxNoResults"}
+                        value={textInput} onChange={handleChange}
+                    />
+                    <div id="autocomplete">
                         {showResults && results}
                     </div>
                 </div>

@@ -16,12 +16,10 @@ function App() {
             Weather App
           </p>
         </div>
-        <div>
             <Search
               locationCoords={locationCoords}
               setCoords={setCoords}
             />
-        </div>
 
       </header>
 
