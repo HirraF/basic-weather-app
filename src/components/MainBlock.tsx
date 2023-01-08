@@ -60,20 +60,20 @@ function MainBlock(props: BlockProps) {
                     <span className="extraTemp" id="feelTemp">{feelTemp} °C</span>
                     <br />
                     <br />
-                    <span>Feels like</span>
+                    <span className="extraTempDesc">Feels like</span>
                 </p>
 
                 <p>
                     <span className="extraTemp" id="maxTemp">{maxTemp} °C</span>
                     <br />
                     <br />
-                    <span>High</span>
+                    <span className="extraTempDesc">High</span>
                 </p>
                 <p>
                     <span className="extraTemp" id="minTemp">{minTemp} °C</span>
                     <br />
                     <br />
-                    <span>Low</span>
+                    <span className="extraTempDesc">Low</span>
                 </p>
             </div>
         </div>

@@ -84,7 +84,7 @@
   background-color: #D3CEDF;
   text-align: center;
   margin-top: 8vh;
-  margin-left: 5vh;
+  margin-left: 5vw;
   /* margin-right: 5vh; */
   padding-top: 2vh;
   border-radius: 4vh;
@@ -92,7 +92,7 @@
 
 .mainBlockHeading {
   text-align: left;
-  padding-left: 7vh;
+  padding-left: 5vw;
 }
 
 .imageContentContainer {
@@ -105,32 +105,40 @@
   text-align: left;
 }
 
+#weatherIconLarge {
+  width: 100%;
+  height: auto;
+}
+
 .tempContent {
   width: 45%;
   text-align: center;
 }
 
 #largeTemp {
-  font-size: 4rem;
+  font-size: 4.5vw;
 }
 
 #largeUnit {
-  font-size: 3.5rem;
+  font-size: 3vw;
 }
 
 #largeDescription {
-  font-size: 2rem;
+  font-size: 2vw;
 }
 
 #extraWeatherInfo {
-  padding-top: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
 .extraTemp{
-  font-size: 1.5rem;
+  font-size: 1.5vw;
+}
+
+.extraTempDesc {
+  font-size: 1vw;
 }
 
 .Block {
@@ -154,4 +162,11 @@
 
 sup {
   font-size: x-small;
+}
+
+h1 {
+  font-size: 2.5vw;
+}
+h2 {
+  font-size: 2vw;
 }
