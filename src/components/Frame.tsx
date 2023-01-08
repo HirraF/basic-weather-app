@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Block from "./Block"
+import MainBlock from "./MainBlock";
 
 type FrameProps = {
     locationCoords: { lat: string, lon: string }
@@ -22,14 +23,12 @@ function Frame(props: FrameProps) {
 
     return (
         <div className="App-frame">
-            <div className="col-1">
-                <Block data={data} day={0} />
+            <div id="today-col">
+                <MainBlock data={data} day={0} />
             </div>
-            <div className="col-1">
-                <Block data={data} day={1} />
-            </div>
-            <div className="col-1">
-                <Block data={data} day={2} />
+            <div className="">
+                {/* <Block data={data} day={1} />
+                <Block data={data} day={2} /> */}
             </div>
         </div>
     );

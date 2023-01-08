@@ -37,6 +37,7 @@
   border-bottom-right-radius: 4vw;
 
 }
+
 .searchBoxResults {
   border-top-left-radius: 4vw;
   border-top-right-radius: 4vw;
@@ -68,13 +69,68 @@
 
 .App-frame {
   display: flex;
+  flex-direction: row;
   height: 90vh;
   justify-content: space-between;
   width: 100%;
 }
 
-.col-1 {
-  flex: 33%;
+#today-col {
+  width: 50%
+}
+
+.MainBlock {
+  height: 70%;
+  background-color: #D3CEDF;
+  text-align: center;
+  margin-top: 8vh;
+  margin-left: 5vh;
+  /* margin-right: 5vh; */
+  padding-top: 2vh;
+  border-radius: 4vh;
+}
+
+.mainBlockHeading {
+  text-align: left;
+  padding-left: 7vh;
+}
+
+.imageContentContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 2vh;
+}
+
+.largeImage {
+  text-align: left;
+}
+
+.tempContent {
+  width: 45%;
+  text-align: center;
+}
+
+#largeTemp {
+  font-size: 4rem;
+}
+
+#largeUnit {
+  font-size: 3.5rem;
+}
+
+#largeDescription {
+  font-size: 2rem;
+}
+
+#extraWeatherInfo {
+  padding-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.extraTemp{
+  font-size: 1.5rem;
 }
 
 .Block {
