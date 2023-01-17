@@ -26,9 +26,12 @@ function Frame(props: FrameProps) {
             <div id="today-col">
                 <MainBlock data={data} day={0} />
             </div>
-            <div className="">
-                {/* <Block data={data} day={1} />
-                <Block data={data} day={2} /> */}
+            <div id="future-col">
+                <div id="blocksContainer">
+                    <Block data={data} day={1} />
+                    <Block data={data} day={2} />
+
+                </div>
             </div>
         </div>
     );

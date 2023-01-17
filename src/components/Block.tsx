@@ -19,7 +19,7 @@ function Block(props: BlockProps) {
     useEffect(() => {
         if (props.data.daily) {
             const dayData: any = props.data.daily[props.day]
-            setTemp(dayData.temp.day)
+            setTemp(Math.trunc(dayData.temp.day))
             setDescription(dayData.weather[0].main)
             setImageUrl(baseImageUrl + dayData.weather[0].icon + ".png")
 
