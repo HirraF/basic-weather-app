@@ -137,7 +137,7 @@
   justify-content: space-around;
 }
 
-.extraTemp{
+.extraTemp {
   font-size: 1.5vw;
 }
 
@@ -147,20 +147,19 @@
 
 .Block {
   text-align: center;
-  padding-top: 5vh;
+  /* padding-top: 5vh; */
   padding-bottom: 5vh;
   background-color: #D3CEDF;
   border-radius: 4vh;
-  font-size: 1rem;
-  height:30%
+  font-size: 2vw;
+  height: 30%
 }
 
 .blockContent {
-  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  text-align: center;
+  justify-content: space-around;
+  padding-left: 2vw;
 }
 
 #blocksContainer {
@@ -169,12 +168,37 @@
   justify-content: space-between;
   height: 70%;
   margin-top: 8vh;
+
 }
 
-/* .description {
+.blockImageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.blockHeading {
+  text-align: left;
+}
+
+.col-1 {
+  width:50%;
+  padding-left: 2vw;
+}
+.col-2 {
+  width:50%
+}
+.blockTemp{
   padding-top: 2vh;
-  font-size: 1.5rem;
+}
+/* .description {
+  margin: 0;
 } */
+
+.left-image{
+  text-align: left;
+
+}
 
 sup {
   font-size: x-small;
@@ -183,6 +207,7 @@ sup {
 h1 {
   font-size: 2.5vw;
 }
+
 h2 {
   font-size: 2vw;
 }
