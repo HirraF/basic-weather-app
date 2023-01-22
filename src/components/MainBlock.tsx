@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDateParts, getDayEnding, getFullDate } from "../helpers/dateHelpers";
+import { getFullDate } from "../helpers/dateHelpers";
 
 type BlockProps = {
     data: any
@@ -16,7 +16,6 @@ function MainBlock(props: BlockProps) {
     const [feelTemp, setFeelTemp] = useState(0);
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')
-    // const [dateEnding, setDateEnding] = useState('')
     const [imageUrl, setImageUrl] = useState('')
 
     useEffect(() => {

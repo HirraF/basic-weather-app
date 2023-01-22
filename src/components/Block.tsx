@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDateParts, getDayEnding } from "../helpers/dateHelpers";
+import {  getShortDate } from "../helpers/dateHelpers";
 
 type BlockProps = {
     data: any
@@ -13,7 +13,6 @@ function Block(props: BlockProps) {
     const [temp, setTemp] = useState(0);
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')
-    const [dateEnding, setDateEnding] = useState('')
     const [imageUrl, setImageUrl] = useState('')
 
     useEffect(() => {
@@ -23,12 +22,9 @@ function Block(props: BlockProps) {
             setDescription(dayData.weather[0].main)
             setImageUrl(baseImageUrl + dayData.weather[0].icon + "@2x.png")
 
-            const [dayWord, month, day] = getDateParts(dayData.dt)
+            const fullDate = getShortDate(dayData.dt)
+            setDate(fullDate)
 
-            const dateString = dayWord + ' ' + day
-            setDate(dateString)
-
-            setDateEnding(getDayEnding(day))
 
         }
     }, [props.data.daily, props.day])
@@ -36,15 +32,15 @@ function Block(props: BlockProps) {
     return (
         <div className="Block">
             <div className="blockContent">
-                <div className="col-1">
+                <div className="blockCol1">
                     <div className="blockHeading">
-                        <h2>{date}<sup>{dateEnding}</sup></h2>
+                        <h3>{date}</h3>
                     </div>
-                    <div className="left-image">
+                    <div className="blockImage">
                         <img src={imageUrl}></img>
                     </div>
                 </div>
-                <div className="col-2">
+                <div className="blockCol2">
                     <div className="blockTemp">
                         <p className="description">{temp} °C</p>
                         <p className="description">{description}</p>

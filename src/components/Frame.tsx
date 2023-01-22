@@ -22,11 +22,11 @@ function Frame(props: FrameProps) {
     }, [props.locationCoords])
 
     return (
-        <div className="App-frame">
-            <div id="today-col">
+        <div className="appFrame">
+            <div id="todayCol">
                 <MainBlock data={data} day={0} />
             </div>
-            <div id="future-col">
+            <div id="futureCol">
                 <div id="blocksContainer">
                     <Block data={data} day={1} />
                     <Block data={data} day={2} />
