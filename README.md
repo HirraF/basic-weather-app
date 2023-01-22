@@ -5,6 +5,8 @@ Basic React Weather App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+In this project I am practicing using React and learning more about CSS. 
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -30,3 +32,11 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
+## Progress:
+Version 1: 
+Basic UI and Search
+![version 1 image](read-me-image/v1.png)
+
+Version 2:
+Improved UI and styling. Added  more weather info. 
+![version 2 image](read-me-image/v2.png)
