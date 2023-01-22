@@ -3,7 +3,7 @@
   height: 100vh;
 }
 
-.AppHeader {
+.App-header {
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -23,11 +23,20 @@
 }
 
 #searchBox {
-  width: 50vw;
+  width: 40vw;
   height: 5vh;
   border-style: none;
   padding-left: 5vw;
   outline: none;
+  background-color: white;
+}
+
+#searchButton{
+    background-color: #d3d6f3;
+    border: none;
+    padding: 1.5vh;
+    border-radius: 4vh;
+    margin-left: 1vw;
 }
 
 .searchBoxNoResults {

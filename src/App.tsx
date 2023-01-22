@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className='App'>
-      <header className="AppHeader">
+      <header className="App-header">
         <div id='logo'>
           <p>
             Weather App
